@@ -18,13 +18,13 @@ body {
 header {
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  padding: 2rem;
+  padding: 6rem 2rem 2rem; /* Increased top padding */
   text-align: center;
 }
 
 header h1 {
   margin: 0;
-  font-size: 3rem;
+  font-size: 5.5rem; /* Increased font size */
   color: var(--text-color);
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards;
@@ -148,10 +148,15 @@ h2 {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .skills-column h3 {
   margin-top: 0;
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .skills-column ul {
@@ -161,6 +166,22 @@ h2 {
 
 .skills-column li {
   margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.skills-column li:hover {
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for skills columns */
+.skills-column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
 }
 
 /* Projects and Research Sections */
