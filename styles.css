@@ -32,13 +32,50 @@ header h1 {
   margin: 0;
   font-family: "Roboto Mono", monospace;
   font-weight: 100;
-  font-size: 6rem; /* Increased font size */
+  font-size: 6rem;
   color: var(--text-color);
-  opacity: 0;
-  animation: gradientFadeIn 3s ease-in-out forwards;
-  letter-spacing: 0.1em;
+  display: inline-block;
+  position: relative;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
 }
 
+header h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+header h1:hover::before {
+  border-color: var(--text-color);
+  animation: rotateBorder 2s linear infinite;
+}
+
+@keyframes rotateBorder {
+  0% {
+    clip-path: inset(0 0 98% 0);
+  }
+  25% {
+    clip-path: inset(0 98% 0 0);
+  }
+  50% {
+    clip-path: inset(98% 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 98%);
+  }
+  100% {
+    clip-path: inset(0 0 98% 0);
+  }
+}
+
+/* ... rest of the header styles remain the same ... */
 @keyframes gradientFadeIn {
   0% {
     opacity: 0;
