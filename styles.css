@@ -58,6 +58,8 @@ header::before {
   background-size: contain;
   opacity: 0.1; /* Adjust this value to change the opacity */
   z-index: -1;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
+    contrast(100%);
 }
 
 header h1:hover::before {
