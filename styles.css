@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
@@ -41,11 +41,12 @@ header {
   z-index: 1000;
 }
 
+/* Header Styles */
 header h1 {
   margin: 0;
   font-size: 2.5rem;
-  color: var(--accent-color);
-  text-shadow: 2px 2px var(--secondary-color), 4px 4px var(--tertiary-color);
+  color: var(--text-color);
+  text-shadow: none;
 }
 
 nav ul {
@@ -128,12 +129,22 @@ h2 {
 
 /* About Section */
 .profile-image {
-  float: right;
-  max-width: 200px;
-  border-radius: 50%;
-  margin: 0 0 20px 20px;
-  border: 3px solid var(--accent-color);
-  box-shadow: 0 0 20px var(--accent-color);
+  float: none;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+  margin: 0 0 20px 0;
+  border: none;
+  box-shadow: none;
+}
+
+#about {
+  text-align: center;
+}
+
+#about p {
+  text-align: left;
 }
 
 /* Skills Section */
