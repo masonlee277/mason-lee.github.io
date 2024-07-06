@@ -14,20 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Scrollbar Styles */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-color);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--text-color);
-  border-radius: 5px;
-}
-
 /* Header Styles */
 header {
   background-color: rgba(0, 0, 0, 0.8);
@@ -71,7 +57,13 @@ header h1 {
 
 /* Navigation Styles */
 nav {
-  margin-top: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  z-index: 1000;
 }
 
 nav ul {
@@ -115,6 +107,8 @@ main {
   margin: 0 auto;
   padding: 20px;
 }
+
+/* ... rest of the CSS remains the same ... */
 
 section {
   margin-bottom: 50px;
