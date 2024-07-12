@@ -247,12 +247,7 @@ h2:hover {
 
 /* Projects and Research Sections */
 .project-item,
-.research-item {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-}
+
 
 /* Links and Buttons */
 a {
@@ -273,21 +268,259 @@ footer {
   margin-top: 50px;
 }
 
-/* Responsive Design */
+/* Skills Section */
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skills-column {
+  flex: 1;
+  min-width: 22%;
+  margin-right: 15px;
+}
+
+.skills-column:last-child {
+  margin-right: 0;
+}
+
+.skill-category {
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.skill-category h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  color: #00ffff;
+}
+
+.skill-category ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-category li {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  font-size: 0.85em;
+}
+
+@media (max-width: 1200px) {
+  .skills-column {
+    flex: 48%;
+    margin-right: 2%;
+  }
+}
+
 @media (max-width: 768px) {
-  header {
-    padding: 1rem;
+  .skills-column {
+    flex: 100%;
+    margin-right: 0;
   }
+}
 
-  nav ul {
-    flex-direction: column;
+/* Research Section */
+.research-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.research-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
+}
+
+.research-item:last-child {
+  border-bottom: none;
+}
+
+.research-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.research-item a {
+  font-size: 0.9em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.research-item:hover a {
+  font-weight: 800;
+}
+
+.research-description {
+  font-size: 0.8em;
+  font-weight: normal;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
+}
+
+.research-item:hover .research-description {
+  max-height: 200px; /* Adjust this value based on your needs */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* Styling for the scrollbar */
+.research-description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.research-description::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.research-description::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  nav ul li {
-    margin: 10px 0;
+  to {
+    opacity: 1;
   }
+}
 
-  .skills-container {
+.research-item:hover .research-description {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Coursework Section */
+#coursework {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 255, 255, 0.1)
+  );
+  padding: 40px;
+  border-radius: 15px;
+  margin-top: 60px;
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
+}
+
+#coursework h2 {
+  color: #00ffff;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.coursework-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.course-category {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.course-category::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-category:hover::before {
+  opacity: 1;
+}
+
+.course-category h3 {
+  color: #00ffff;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  position: relative;
+  z-index: 1;
+}
+
+.course-category ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.course-category li {
+  margin-bottom: 15px;
+  font-size: 0.95em;
+  line-height: 1.5;
+  transition: transform 0.3s ease;
+}
+
+.course-category li:hover {
+  transform: translateX(10px);
+}
+
+.course-code {
+  font-weight: bold;
+  color: #00ffff;
+  margin-right: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.course-category li:hover .course-code {
+  transform: scale(1.1);
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .coursework-container {
     grid-template-columns: 1fr;
   }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.course-category:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  animation: pulse 2s infinite;
 }
