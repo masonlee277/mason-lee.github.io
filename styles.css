@@ -858,3 +858,85 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+#pluto-gallery {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#pluto-gallery h2 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.pluto-info {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  font-weight: 300;
+}
+
+.pluto-carousel {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: #00ffff rgba(0, 255, 255, 0.1);
+}
+
+.carousel-content {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  width: max-content;
+}
+
+.carousel-image,
+.carousel-video {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+.carousel-video {
+  object-fit: contain;
+  background-color: #000;
+}
+
+.carousel-image:hover,
+.carousel-video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4);
+}
+
+#closing-message {
+  text-align: center;
+  padding: 2rem 0;
+  opacity: 0;
+  animation: fadeIn 4s ease-in-out forwards;
+}
+
+#closing-message p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
