@@ -405,40 +405,233 @@ footer {
   animation: fadeIn 0.5s ease-out;
 }
 
+/* ML Model Section */
+.ml-models {
+  background: linear-gradient(45deg, #000033, #003366);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ml-models h3 {
+  color: #00ffff;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.model-category {
+  background: rgba(0, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.model-category::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.model-category:hover::before {
+  opacity: 1;
+}
+
+.model-category h4 {
+  color: #00ffff;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.model-category ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.model-category li {
+  color: #ffffff;
+  font-size: 0.95em;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+}
+
+.model-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+/* Category-specific gradients */
+.model-category[data-category="rl"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 69, 0, 0.1),
+    rgba(0, 255, 255, 0.05)
+  );
+}
+.model-category[data-category="cv"] {
+  background: linear-gradient(
+    135deg,
+    rgba(50, 205, 50, 0.1),
+    rgba(0, 255, 255, 0.05)
+  );
+}
+.model-category[data-category="pinn"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1),
+    rgba(0, 255, 255, 0.05)
+  );
+}
+.model-category[data-category="prob"] {
+  background: linear-gradient(
+    135deg,
+    rgba(153, 50, 204, 0.1),
+    rgba(0, 255, 255, 0.05)
+  );
+}
+.model-category[data-category="gnn"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 105, 180, 0.1),
+    rgba(0, 255, 255, 0.05)
+  );
+}
+.model-category[data-category="general"] {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 144, 255, 0.1),
+    rgba(0, 255, 255, 0.05)
+  );
+}
+
+@media (max-width: 768px) {
+  .model-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* New feature: Reveal effect */
+.model-category li {
+  opacity: 0.7;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.model-category:hover li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveal for list items */
+.model-category li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.model-category li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.model-category li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.model-category li:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.model-category li:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+/* New feature: Glowing text effect on hover */
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+      0 0 15px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+}
+
+.model-category:hover h4,
+.model-category:hover li {
+  animation: textGlow 2s infinite;
+}
+
 /* Coursework Section */
 #coursework {
-  background: linear-gradient(
-    45deg,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 255, 255, 0.1)
-  );
-  padding: 40px;
+  background: linear-gradient(45deg, #000033, #003366);
   border-radius: 15px;
-  margin-top: 60px;
+  padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  margin: 60px auto 0;
 }
 
 #coursework h2 {
   color: #00ffff;
   text-align: center;
+  font-size: 2em;
   margin-bottom: 40px;
-  font-size: 2.5em;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .coursework-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
 .course-category {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  background: rgba(0, 255, 255, 0.05);
+  border-radius: 15px;
   padding: 25px;
-  transition: all 0.3s ease;
-  overflow: hidden;
+  transition: all 0.4s ease;
   position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
 }
 
 .course-category::before {
@@ -454,7 +647,7 @@ footer {
     transparent 70%
   );
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .course-category:hover::before {
@@ -463,30 +656,24 @@ footer {
 
 .course-category h3 {
   color: #00ffff;
-  margin-top: 0;
+  font-size: 1.3em;
   margin-bottom: 20px;
-  font-size: 1.4em;
   position: relative;
-  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .course-category ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  position: relative;
-  z-index: 1;
 }
 
 .course-category li {
-  margin-bottom: 15px;
+  color: #ffffff;
   font-size: 0.95em;
-  line-height: 1.5;
-  transition: transform 0.3s ease;
-}
-
-.course-category li:hover {
-  transform: translateX(10px);
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
 }
 
 .course-code {
@@ -497,30 +684,62 @@ footer {
   transition: all 0.3s ease;
 }
 
-.course-category li:hover .course-code {
-  transform: scale(1.1);
-  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+.course-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
 }
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+      0 0 15px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+}
+
+.course-category:hover h3,
+.course-category:hover li,
+.course-category:hover .course-code {
+  animation: textGlow 2s infinite;
+}
+
+/* Reveal effect for courses */
+.course-category li {
+  opacity: 0.7;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.course-category:hover li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveal for courses */
+.course-category li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.course-category li:nth-child(2) {
+  transition-delay: 0.15s;
+}
+.course-category li:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.course-category li:nth-child(4) {
+  transition-delay: 0.25s;
+}
+.course-category li:nth-child(5) {
+  transition-delay: 0.3s;
+}
+/* Add more if needed */
 
 @media (max-width: 768px) {
   .coursework-container {
     grid-template-columns: 1fr;
   }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.course-category:hover {
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-  animation: pulse 2s infinite;
 }
