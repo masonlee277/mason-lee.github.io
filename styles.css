@@ -198,6 +198,20 @@ h2:hover {
   text-align: left;
 }
 
+#education h3,
+#education h4 {
+  margin-bottom: 0.5em;
+}
+
+#education ul {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+#education li {
+  margin-bottom: 0.25em;
+}
+
 /* Skills Section */
 .skills-container {
   display: grid;
