@@ -211,10 +211,25 @@ h2:hover {
   margin-bottom: 0.25em;
 }
 
+details {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+details ul {
+  margin-top: 10px;
+}
+
 .education-fire-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  align-items: flex-start;
 }
 
 #education {
@@ -224,7 +239,6 @@ h2:hover {
 
 #fire-gallery {
   flex: 1;
-  max-width: 400px;
 }
 
 .fire-carousel {
